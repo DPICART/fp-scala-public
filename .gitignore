@@ -1,6 +1,7 @@
 *.class
 *.log
 
+<<<<<<< HEAD
 #Eclipse
 .classpath
 .project
@@ -15,6 +16,11 @@
 # sbt specific
 .cache
 .history/
+=======
+# sbt specific
+.cache
+.history
+>>>>>>> cfc9feb097f1aae6b97fc52556b1eb9fe38a979c
 .lib/
 dist/*
 target/
@@ -26,6 +32,7 @@ project/plugins/project/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+<<<<<<< HEAD
 
 #IDEA
 .idea
@@ -33,3 +40,5 @@ project/plugins/project/
 
 .cache-*
 *.orig
+=======
+>>>>>>> cfc9feb097f1aae6b97fc52556b1eb9fe38a979c
