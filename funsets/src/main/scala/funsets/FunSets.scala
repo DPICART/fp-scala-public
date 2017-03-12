@@ -26,7 +26,10 @@ object FunSets {
     f
   }
 
-  //def singleElementSet(elem: Int): FunSet = (x => x == elem)
+  /*
+   * OU
+   * def singleElementSet(elem: Int): FunSet = (x => x == elem)
+   */
 
   /**
    * Returns the union of the two given sets,
@@ -52,7 +55,8 @@ object FunSets {
     }
 
   /*
-   * OU def intersect(v: FunSet, i: FunSet): FunSet = (x => contains(v,x) && contains(i,x))
+   * OU
+   * def intersect(v: FunSet, i: FunSet): FunSet = (x => contains(v,x) && contains(i,x))
    */
 
   /**
@@ -117,7 +121,8 @@ object FunSets {
     (y => exists(s, x => y == f(x)))
 
   def toSet(ints: List[Int]): FunSet =
-    ??? //TODO : (optional) convert a list to Set
+    collection.SortedSet(ints: _*)
+  // cf http://stackoverflow.com/questions/6674156/convert-list-of-ints-to-a-sortedset-in-scala
 
   def toList(set: FunSet): List[Int] =
     ??? //TODO : (optional) convert a Set to a List
