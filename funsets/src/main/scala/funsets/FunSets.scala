@@ -85,7 +85,7 @@ object FunSets {
 
   /*
    * OU
-   * def filter(f: FunSet, i: Int => Boolean): Set = (x => contains(f,x) && i(x))
+   * def filter(f: FunSet, i: Int => Boolean): FunSet = (x => contains(f,x) && i(x))
    */
 
   /**
@@ -126,6 +126,9 @@ object FunSets {
 
   def toList(set: FunSet): List[Int] =
     ??? //TODO : (optional) convert a Set to a List
+    /*
+     * 
+     */
 
   /**
    * Displays the contents of a set
