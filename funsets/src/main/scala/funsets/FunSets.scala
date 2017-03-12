@@ -21,35 +21,68 @@ object FunSets {
   /**
    * Returns the set of the one given element.
    */
-  def singleElementSet(elem: Int): FunSet =
-    ??? //TODO : singleton set
+  def singleElementSet(elem: Int): FunSet = {
+    def f(x: Int): Boolean = (x == elem)
+    f
+  }
+
+  //def singleElementSet(elem: Int): FunSet = (x => x == elem)
 
   /**
    * Returns the union of the two given sets,
    * the sets of all elements that are in either `s` or `t`.
    */
-  def union(s: FunSet, t: FunSet): FunSet =
-    ??? //TODO : union
+  def union(s: FunSet, t: FunSet): FunSet = {
+    def f(x: Int): Boolean = (s(x) || t(x))
+    f
+  }
+  /*
+   * OU
+   *def union(d: FunSet, a: FunSet): FunSet = (x => contains(d,x) || contains(a,x))
+   */
 
   /**
    * Returns the intersection of the two given sets,
    * the set of all elements that are both in `s` or `t`.
    */
   def intersect(s: FunSet, t: FunSet): FunSet =
-    ??? // TODO : interesection between 2 sets
+    {
+      def f(x: Int): Boolean = (s(x) && t(x))
+      f
+    }
+
+  /*
+   * OU def intersect(v: FunSet, i: FunSet): FunSet = (x => contains(v,x) && contains(i,x))
+   */
 
   /**
    * Returns the difference of the two given sets,
    * the set of all elements of `s` that are not in `t`.
    */
   def diff(s: FunSet, t: FunSet): FunSet =
-    ??? // TODO : difference between 2 sets
+    {
+      def f(x: Int): Boolean = (s(x) && !t(x))
+      f
+    }
+
+  /*
+   * OU
+   * def diff(a: FunSet, z: FunSet): FunSet = (x => contains(a,x) && !contains(z,x))
+   */
 
   /**
    * Returns the subset of `s` for which `p` holds.
    */
   def filter(s: FunSet, p: Int => Boolean): FunSet =
-    ??? //TODO : return a new set in which only elements verifying the predicate are kept
+    {
+      def f(x: Int): Boolean = (s(x) && p(x))
+      f
+    }
+
+  /*
+   * OU
+   * def filter(f: FunSet, i: Int => Boolean): Set = (x => contains(f,x) && i(x))
+   */
 
   /**
    * The bounds for `forall` and `exists` are +/- 1000.
@@ -61,26 +94,27 @@ object FunSets {
    */
   def forall(s: FunSet, p: Int => Boolean): Boolean = {
     def iter(a: Int): Boolean = {
-      if (???) ???
-      else if (???) ???
-      else iter(???)
+      if (a > bound) true
+      else if (contains(s, a) && !p(a)) false
+      else iter(a + 1)
     }
-    iter(???)
+    iter(-bound)
   }
-  //TODO: forall : check if all integers verify the predicate
 
   /**
    * Returns whether there exists a bounded integer within `s`
    * that satisfies `p`.
+   * forall => Il n'existe pas d'entier 'bounded' tel que p(x) est faux
+   * ! forall => Il existe un entier 'bounded' tel que p(x) est faux
    */
   def exists(s: FunSet, p: Int => Boolean): Boolean =
-    ??? //TODO: check if at least an integer verifies the predicate
+    !forall(s, x => !p(x))
 
   /**
    * Returns a set transformed by applying `f` to each element of `s`.
    */
   def map(s: FunSet, f: Int => Int): FunSet =
-    ??? //TODO : transform into a new set
+    (y => exists(s, x => y == f(x)))
 
   def toSet(ints: List[Int]): FunSet =
     ??? //TODO : (optional) convert a list to Set
