@@ -121,15 +121,12 @@ object FunSets {
     (y => exists(s, x => y == f(x)))
 
   def toSet(ints: List[Int]): FunSet =
-    collection.SortedSet(ints: _*)
-  // cf http://stackoverflow.com/questions/6674156/convert-list-of-ints-to-a-sortedset-in-scala
+    if (ints.isEmpty) x => false
+    else union(singleElementSet(ints.head), toSet(ints.tail))
 
-  def toList(set: FunSet): List[Int] =
-    ??? //TODO : (optional) convert a Set to a List
-    /*
-     * 
-     */
+  /*def toList(set: FunSet): List[Int] = {
 
+  }*/
   /**
    * Displays the contents of a set
    */
