@@ -1,8 +1,8 @@
 package objsets
 
 /**
-  * Created by mdaviot on 6/13/16.
-  */
+ * Created by mdaviot on 6/13/16.
+ */
 object Main extends App {
   // Some help printing the results:
   println("RANKED:")
@@ -14,15 +14,20 @@ object GoogleVsApple {
 
   val apple = List("ios", "iOS", "iphone", "iPhone", "ipad", "iPad")
 
-  val googleTweets: TweetSet =
-    ??? //TODO: keep only google tweets
+  /*
+   * TweetReader.allTweets
+   * .filter
+   *google.exist( text )
+   */
 
-  val appleTweets: TweetSet =
-    ??? //TODO: keep only apple tweets
+  val googleTweets: TweetSet = TweetReader.allTweets.filter(tweetTest => google.exists(e => tweetTest.text.contains(e)))
 
-  val trending: Trending =
-    ??? // TODO: join both sets
-  //TODO what is the tweet with highest #retweets?
+  val appleTweets: TweetSet = TweetReader.allTweets.filter(tweetTest => apple.exists(e => tweetTest.text.contains(e)))
+
+  /**
+   * On regroupe les deux listes avec le .union
+   * Puis on les classe grâce a .ascendingByRetweet
+   *
+   */
+  val trending: Trending = (appleTweets.union(googleTweets)).ascendingByRetweet
 }
-
-

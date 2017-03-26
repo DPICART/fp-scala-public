@@ -19,6 +19,5 @@ object EmptySet extends TweetSet {
   // -------------------------------------------------------------------------
 
   def filter0(p: Tweet => Boolean, acc: TweetSet): TweetSet =
-    ??? //TODO : you can implement the helper function in EmptySet
-
+    acc
 }

@@ -29,8 +29,9 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
 
   // -------------------------------------------------------------------------
 
-  def filter0(p: Tweet => Boolean, acc: TweetSet): TweetSet =
-    ??? //TODO : you can implement the helper function in the NonEmpty set
-
+  def filter0(p: Tweet => Boolean, acc: TweetSet): TweetSet = {
+    val acc1 = if (p(elem)) acc.incl(elem) else acc
+    val acc2 = right.filter0(p, acc1)
+    left.filter0(p, acc2)
+  }
 }
-

@@ -714,6 +714,7 @@ object TweetData {
 { "user": "mashable", "text": "Cute Images Make Us 44% Sharper [STUDY] http://t.co/I4IiIbHX", "retweets": 42.0 },
 { "user": "mashable", "text": "Take 100 NASA Photos, Stir, Make Van Gogh's 'Starry Night' http://t.co/dQv6mvwI", "retweets": 73.0 },
 { "user": "mashable", "text": "Why Being Unfriended on Facebook Hurts [STUDY] http://t.co/0eHHUrTo", "retweets": 51.0 },
-{ "user": "mashable", "text": "Think Apple Maps Is Bad? Remember the Tale of MobileMe http://t.co/Koeew9eU", "retweets": 41.0 }
+{ "user": "mashable", "text": "Think Apple Maps Is Bad? Remember the Tale of MobileMe http://t.co/Koeew9eU", "retweets": 41.0 },
+{ "user": "mashable", "text": "android vs ios un combat perdu d'avance par ios", "retweets": 131115.0 }
 ]"""
 }
